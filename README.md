@@ -1,2 +1,2 @@
-# woodenspoon
-Repository for organising The Wooden Spoon blog
+# battlelinesdrawncom
+Repository for organising the Battle Lines Drawn blog
