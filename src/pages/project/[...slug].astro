@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import ProjectMeta from '../../components/ProjectMeta.astro';
+import { getPublishedPosts, getAllTags } from '../../utils/collections';
+import { slugify } from '../../utils/slugify';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('project', ({ data }) => !data.draft);
+  return projects.map(project => ({ params: { slug: project.slug }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+
+const recentPosts = await getPublishedPosts();
+const allTags = await getAllTags();
+
+const dateStr = project.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Base title={project.data.title} description={project.data.description}>
+  <div class="wrap">
+    <article class="post_content">
+      <h1 class="post_title">{project.data.title}</h1>
+      <div class="post_meta">
+        <span>{dateStr}</span>
+        {project.data.tags.map(tag => (
+          <a href={`/tags/${slugify(tag)}/`} class="tag-chip">{tag}</a>
+        ))}
+      </div>
+
+      {project.data.featureImage && (
+        <div class="post_featured">
+          <img src={project.data.featureImage} alt={project.data.featureImageAlt ?? project.data.title} />
+        </div>
+      )}
+
+      <ProjectMeta
+        scale={project.data.scale}
+        suppliers={project.data.suppliers}
+        started={project.data.started ?? undefined}
+        completed={project.data.completed ?? undefined}
+        rulesets={project.data.rulesets}
+        models={project.data.models}
+      />
+
+      <div class="post_body">
+        <Content />
+      </div>
+    </article>
+    <Sidebar recentPosts={recentPosts} allTags={allTags} />
+  </div>
+</Base>

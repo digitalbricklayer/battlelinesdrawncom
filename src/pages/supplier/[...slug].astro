@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import SupplierMeta from '../../components/SupplierMeta.astro';
+import { getPublishedPosts, getAllTags } from '../../utils/collections';
+
+export async function getStaticPaths() {
+  const suppliers = await getCollection('supplier', ({ data }) => !data.draft);
+  return suppliers.map(supplier => ({ params: { slug: supplier.slug }, props: { supplier } }));
+}
+
+const { supplier } = Astro.props;
+const { Content } = await supplier.render();
+
+const recentPosts = await getPublishedPosts();
+const allTags = await getAllTags();
+
+const dateStr = supplier.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Base title={supplier.data.title} description={supplier.data.description}>
+  <div class="wrap">
+    <article class="post_content">
+      <h1 class="post_title">{supplier.data.title}</h1>
+      <div class="post_meta">
+        <span>{dateStr}</span>
+      </div>
+
+      {supplier.data.featureImage && (
+        <div class="post_featured">
+          <img src={supplier.data.featureImage} alt={supplier.data.featureImageAlt ?? supplier.data.title} />
+        </div>
+      )}
+
+      <SupplierMeta
+        title={supplier.data.title}
+        scales={supplier.data.scales}
+        website_url={supplier.data.website_url}
+      />
+
+      <div class="post_body">
+        <Content />
+      </div>
+    </article>
+    <Sidebar recentPosts={recentPosts} allTags={allTags} />
+  </div>
+</Base>

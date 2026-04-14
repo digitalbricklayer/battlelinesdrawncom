@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import RulesetMeta from '../../components/RulesetMeta.astro';
+import { getPublishedPosts, getAllTags } from '../../utils/collections';
+import { slugify } from '../../utils/slugify';
+
+export async function getStaticPaths() {
+  const rulesets = await getCollection('ruleset', ({ data }) => !data.draft);
+  return rulesets.map(ruleset => ({ params: { slug: ruleset.slug }, props: { ruleset } }));
+}
+
+const { ruleset } = Astro.props;
+const { Content } = await ruleset.render();
+
+const recentPosts = await getPublishedPosts();
+const allTags = await getAllTags();
+
+const dateStr = ruleset.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Base title={ruleset.data.title} description={ruleset.data.description}>
+  <div class="wrap">
+    <article class="post_content">
+      <h1 class="post_title">{ruleset.data.title}</h1>
+      <div class="post_meta">
+        <span>{dateStr}</span>
+        {ruleset.data.tags.map(tag => (
+          <a href={`/tags/${slugify(tag)}/`} class="tag-chip">{tag}</a>
+        ))}
+      </div>
+
+      {ruleset.data.featureImage && (
+        <div class="post_featured">
+          <img src={ruleset.data.featureImage} alt={ruleset.data.featureImageAlt ?? ruleset.data.title} />
+        </div>
+      )}
+
+      <RulesetMeta
+        scales={ruleset.data.scales}
+        authors={ruleset.data.authors}
+        supplier={ruleset.data.supplier}
+      />
+
+      <div class="post_body">
+        <Content />
+      </div>
+    </article>
+    <Sidebar recentPosts={recentPosts} allTags={allTags} />
+  </div>
+</Base>

@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPublishedPosts, getAllTags } from '../../utils/collections';
+
+const suppliers = await getCollection('supplier', ({ data }) => !data.draft);
+suppliers.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const recentPosts = await getPublishedPosts();
+const allTags = await getAllTags();
+---
+
+<Base title="Suppliers">
+  <div class="wrap">
+    <div class="post_content">
+      <div class="page-header"><h1>Suppliers</h1></div>
+      <ul class="post-list">
+        {suppliers.map(s => (
+          <PostCard
+            title={s.data.title}
+            href={`/supplier/${s.slug}/`}
+            date={s.data.date}
+            description={s.data.description}
+            thumbnail={s.data.thumbnail}
+            tags={s.data.tags}
+          />
+        ))}
+      </ul>
+    </div>
+    <Sidebar recentPosts={recentPosts} allTags={allTags} />
+  </div>
+</Base>

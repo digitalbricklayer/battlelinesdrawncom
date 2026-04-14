@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string;
+  scales?: string[];
+  website_url?: string;
+}
+
+const { title, scales = [], website_url } = Astro.props;
+---
+
+<div class="supplier-meta">
+  <h2>Introduction</h2>
+  <table>
+    <tbody>
+      <tr>
+        <th scope="row">Scales</th>
+        <td>{scales.map(s => <span>{s} </span>)}</td>
+      </tr>
+      <tr>
+        <th scope="row">Website</th>
+        <td>
+          {website_url
+            ? <a href={website_url} target="_blank" rel="noopener noreferrer">{title}</a>
+            : ''}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

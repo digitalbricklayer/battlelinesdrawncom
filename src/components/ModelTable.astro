@@ -1,0 +1,46 @@
+---
+import { slugify } from '../utils/slugify';
+
+interface Model {
+  name: string;
+  qty: number | string;
+  sku?: string | null;
+  supplier?: string | null;
+}
+
+interface Props {
+  models: Model[];
+}
+
+const { models } = Astro.props;
+---
+
+{models.length > 0 && (
+  <div class="army-contents">
+    <h2>Army Contents</h2>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">SKU</th>
+          <th scope="col">Supplier</th>
+        </tr>
+      </thead>
+      <tbody>
+        {models.map(m => (
+          <tr>
+            <td>{m.name}</td>
+            <td>{m.qty}</td>
+            <td>{m.sku ?? ''}</td>
+            <td>
+              {m.supplier
+                ? <a href={`/supplier/${slugify(m.supplier)}/`}>{m.supplier}</a>
+                : ''}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+)}

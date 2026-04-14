@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import Sidebar from '../components/Sidebar.astro';
+import { getPublishedPosts, getAllTags } from '../utils/collections';
+
+const posts = await getPublishedPosts();
+const allTags = await getAllTags();
+---
+
+<Base title="About" description="A description of the Battle Lines Drawn blog and what you can expect to read here.">
+  <div class="wrap">
+    <article class="post_content">
+      <h1 class="post_title">About Battle Lines Drawn</h1>
+      <div class="post_body">
+        <p>
+          The Battle Lines Drawn blog is my online workspace to keep all of my wargaming thoughts
+          and resources in a single silo for later reference. I am a keen World War 2 wargamer
+          using a variety of wargaming rules and scales.
+        </p>
+      </div>
+    </article>
+    <Sidebar recentPosts={posts} allTags={allTags} />
+  </div>
+</Base>

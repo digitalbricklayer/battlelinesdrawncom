@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getAllTags } from '../../utils/collections';
+import { slugify } from '../../utils/slugify';
+
+const allTags = await getAllTags();
+---
+
+<Base title="Tags">
+  <div class="wrap full-width">
+    <div class="post_content">
+      <div class="page-header"><h1>Tags</h1></div>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+        {allTags.map(tag => (
+          <a href={`/tags/${slugify(tag)}/`} class="tag-chip" style="font-size: 1rem; padding: 0.3em 0.8em;">{tag}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</Base>

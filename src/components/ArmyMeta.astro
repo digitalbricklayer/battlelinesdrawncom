@@ -1,0 +1,30 @@
+---
+import { slugify } from '../utils/slugify';
+
+interface Props {
+  scale?: string;
+  rulesets?: string[];
+}
+
+const { scale, rulesets = [] } = Astro.props;
+---
+
+<div class="army-meta">
+  <h2>Introduction</h2>
+  <table>
+    <tbody>
+      <tr>
+        <th scope="row">Scale</th>
+        <td>{scale ?? ''}</td>
+      </tr>
+      <tr>
+        <th scope="row">Rulesets</th>
+        <td>
+          {rulesets.map(r => (
+            <a href={`/ruleset/${slugify(r)}/`}>{r}</a>
+          ))}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,62 @@
+---
+import { slugify } from '../utils/slugify';
+import ModelTable from './ModelTable.astro';
+
+interface Model {
+  name: string;
+  qty: number | string;
+  sku?: string | null;
+  supplier?: string | null;
+}
+
+interface Props {
+  scale?: string | number;
+  suppliers?: string[];
+  started?: Date | null;
+  completed?: Date | null;
+  rulesets?: string[];
+  models?: Model[];
+}
+
+const { scale, suppliers = [], started, completed, rulesets = [], models = [] } = Astro.props;
+
+const fmt = (d: Date) => d.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<div class="project-meta">
+  <h2>Introduction</h2>
+  <table>
+    <tbody>
+      <tr>
+        <th scope="row">Started</th>
+        <td>{started ? fmt(started) : ''}</td>
+      </tr>
+      <tr>
+        <th scope="row">Completed</th>
+        <td>{completed ? fmt(completed) : ''}</td>
+      </tr>
+      <tr>
+        <th scope="row">Scale</th>
+        <td>{scale ?? ''}</td>
+      </tr>
+      <tr>
+        <th scope="row">Suppliers</th>
+        <td>
+          {suppliers.map(s => (
+            <a href={`/supplier/${slugify(s)}/`}>{s}</a>
+          ))}
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Rulesets</th>
+        <td>
+          {rulesets.map(r => (
+            <a href={`/ruleset/${slugify(r)}/`}>{r}</a>
+          ))}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ModelTable models={models} />

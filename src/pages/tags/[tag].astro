@@ -1,0 +1,83 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPublishedPosts, getAllTags } from '../../utils/collections';
+import { slugify } from '../../utils/slugify';
+
+export async function getStaticPaths() {
+  const [posts, armies, projects, rulesets, suppliers] = await Promise.all([
+    getCollection('post'),
+    getCollection('army'),
+    getCollection('project'),
+    getCollection('ruleset'),
+    getCollection('supplier'),
+  ]);
+
+  const allContent = [...posts, ...armies, ...projects, ...rulesets, ...suppliers];
+
+  // Build a map from slug → raw display name (first seen wins)
+  const tagMap = new Map<string, string>();
+  for (const c of allContent) {
+    for (const t of (c.data.tags ?? [])) {
+      const slug = slugify(t);
+      if (!tagMap.has(slug)) tagMap.set(slug, t);
+    }
+  }
+
+  return [...tagMap.entries()].map(([slug, raw]) => ({
+    params: { tag: slug },
+    props: { tagSlug: slug, tagDisplay: raw },
+  }));
+}
+
+const { tagSlug, tagDisplay } = Astro.props;
+
+// Filter content by matching slugified tags
+const matchesTag = (tags: string[]) => tags.some(t => slugify(t) === tagSlug);
+
+const [posts, armies, projects, rulesets, suppliers] = await Promise.all([
+  getCollection('post', ({ data }) => !data.draft && matchesTag(data.tags ?? [])),
+  getCollection('army', ({ data }) => !data.draft && matchesTag(data.tags ?? [])),
+  getCollection('project', ({ data }) => !data.draft && matchesTag(data.tags ?? [])),
+  getCollection('ruleset', ({ data }) => !data.draft && matchesTag(data.tags ?? [])),
+  getCollection('supplier', ({ data }) => !data.draft && matchesTag(data.tags ?? [])),
+]);
+
+type Item = { title: string; href: string; date: Date; description?: string; thumbnail?: string; tags?: string[] };
+
+const items: Item[] = [
+  ...posts.map(p => ({ title: p.data.title, href: `/post/${p.slug}/`, date: p.data.date, description: p.data.description, thumbnail: p.data.thumbnail, tags: p.data.tags })),
+  ...armies.map(a => ({ title: a.data.title, href: `/army/${a.slug}/`, date: a.data.date, description: a.data.description, thumbnail: a.data.thumbnail, tags: a.data.tags })),
+  ...projects.map(p => ({ title: p.data.title, href: `/project/${p.slug}/`, date: p.data.date, description: p.data.description, thumbnail: p.data.thumbnail, tags: p.data.tags })),
+  ...rulesets.map(r => ({ title: r.data.title, href: `/ruleset/${r.slug}/`, date: r.data.date, description: r.data.description, thumbnail: r.data.thumbnail, tags: r.data.tags })),
+  ...suppliers.map(s => ({ title: s.data.title, href: `/supplier/${s.slug}/`, date: s.data.date, description: s.data.description, thumbnail: s.data.thumbnail, tags: s.data.tags })),
+].sort((a, b) => b.date.valueOf() - a.date.valueOf());
+
+const recentPosts = await getPublishedPosts();
+const allTags = await getAllTags();
+---
+
+<Base title={`Tag: ${tagDisplay}`}>
+  <div class="wrap">
+    <div class="post_content">
+      <div class="page-header">
+        <h1>Tag: {tagDisplay}</h1>
+      </div>
+      <ul class="post-list">
+        {items.map(item => (
+          <PostCard
+            title={item.title}
+            href={item.href}
+            date={item.date}
+            description={item.description}
+            thumbnail={item.thumbnail}
+            tags={item.tags}
+          />
+        ))}
+      </ul>
+    </div>
+    <Sidebar recentPosts={recentPosts} allTags={allTags} />
+  </div>
+</Base>

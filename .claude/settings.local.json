@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(head -40 /c/Users/User/source/repos/battlelinesdrawncom/src/content/post/*.md)",
+      "Bash(xargs -I {} head -50 \"{}\")",
+      "Bash(xargs wc:*)",
+      "Bash(npm create:*)",
+      "Bash(cp /c/Users/User/source/repos/battlelinesdrawncom/src/content/army/*.md /c/Users/User/source/repos/battlelinesdrawncom/astro/src/content/army/)",
+      "Bash(cp /c/Users/User/source/repos/battlelinesdrawncom/src/content/ruleset/*.md /c/Users/User/source/repos/battlelinesdrawncom/astro/src/content/ruleset/)",
+      "Bash(cp /c/Users/User/source/repos/battlelinesdrawncom/src/content/supplier/*.md /c/Users/User/source/repos/battlelinesdrawncom/astro/src/content/supplier/)",
+      "Bash(cp -r /c/Users/User/source/repos/battlelinesdrawncom/src/static/icons /c/Users/User/source/repos/battlelinesdrawncom/astro/public/)",
+      "Bash(cp -r /c/Users/User/source/repos/battlelinesdrawncom/src/static/logos /c/Users/User/source/repos/battlelinesdrawncom/astro/public/)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(mv astro/astro.config.mjs astro/package.json astro/package-lock.json astro/tsconfig.json .)",
+      "Bash(mv astro/src astro/public .)",
+      "Bash(mv astro/.astro .)",
+      "Bash(rm -rf astro)"
+    ]
+  }
+}

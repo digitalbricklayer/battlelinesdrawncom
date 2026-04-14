@@ -1,11 +1,11 @@
 # battlelinesdrawn.com
 
-The Battle Lines Drawn blog uses the [hugo clarity theme](https://themes.gohugo.io/themes/hugo-clarity/). You can find the clarity getting started docs [here](https://themes.gohugo.io/themes/hugo-clarity/#getting-up-and-running).
+The Battle Lines Drawn blog, built with [Astro](https://astro.build/).
 
-## Useful commands
+## Commands
 
-To update the theme: `git submodule update --remote --merge`
-
-To run a local webserver: `hugo server`
-
-To build the site: `hugo`
+```bash
+npm run dev      # local dev server
+npm run build    # build to dist/
+npm run preview  # preview the built site
+```

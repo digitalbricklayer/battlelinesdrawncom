@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { slugify } from '../utils/slugify';
+
+interface Props {
+  recentPosts?: CollectionEntry<'post'>[];
+  allTags?: string[];
+}
+
+const { recentPosts = [], allTags = [] } = Astro.props;
+---
+
+<aside class="sidebar">
+  {recentPosts.length > 0 && (
+    <div class="sidebar-widget">
+      <h3>Recent Posts</h3>
+      <ul class="sidebar-posts">
+        {recentPosts.slice(0, 8).map(post => (
+          <li>
+            <a href={`/post/${post.slug}/`}>{post.data.title}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+
+  {allTags.length > 0 && (
+    <div class="sidebar-widget">
+      <h3>Tags</h3>
+      <div class="sidebar-tags">
+        {allTags.slice(0, 14).map(tag => (
+          <a href={`/tags/${slugify(tag)}/`} class="tag-chip">{tag}</a>
+        ))}
+      </div>
+    </div>
+  )}
+</aside>

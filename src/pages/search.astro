@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import Sidebar from '../components/Sidebar.astro';
+import { getPublishedPosts, getAllTags } from '../utils/collections';
+
+const recentPosts = await getPublishedPosts();
+const allTags = await getAllTags();
+---
+
+<Base title="Search">
+  <div class="wrap">
+    <div class="post_content">
+      <div class="page-header"><h1>Search</h1></div>
+      <div id="search-ui">
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Search posts..."
+          autofocus
+          style="width: 100%; padding: 0.6rem 0.8rem; font-size: 1rem; border: 1px solid var(--color-border); border-radius: 4px; margin-bottom: 1rem;"
+        />
+        <ul id="search-results" class="post-list"></ul>
+        <p id="search-empty" style="display:none; color: var(--color-text-muted);">No results found.</p>
+      </div>
+    </div>
+    <Sidebar recentPosts={recentPosts} allTags={allTags} />
+  </div>
+</Base>
+
+<script>
+  import Fuse from 'fuse.js';
+
+  interface SearchItem {
+    title: string;
+    description: string;
+    url: string;
+    tags: string[];
+  }
+
+  const input = document.getElementById('search-input') as HTMLInputElement;
+  const resultsList = document.getElementById('search-results') as HTMLUListElement;
+  const emptyMsg = document.getElementById('search-empty') as HTMLParagraphElement;
+
+  let fuse: Fuse<SearchItem> | null = null;
+
+  async function loadIndex() {
+    const res = await fetch('/search-index.json');
+    const data: SearchItem[] = await res.json();
+    fuse = new Fuse(data, {
+      keys: ['title', 'description', 'tags'],
+      threshold: 0.3,
+    });
+  }
+
+  function render(results: Fuse.FuseResult<SearchItem>[]) {
+    resultsList.innerHTML = '';
+    if (results.length === 0) {
+      emptyMsg.style.display = 'block';
+      return;
+    }
+    emptyMsg.style.display = 'none';
+    for (const { item } of results) {
+      const li = document.createElement('li');
+      li.className = 'post-card';
+      li.innerHTML = `
+        <div class="post-card__body">
+          <h2 class="post-card__title"><a href="${item.url}">${item.title}</a></h2>
+          <p class="post-card__desc">${item.description}</p>
+        </div>
+      `;
+      resultsList.appendChild(li);
+    }
+  }
+
+  loadIndex();
+
+  input.addEventListener('input', () => {
+    const q = input.value.trim();
+    if (!fuse || q.length < 2) {
+      resultsList.innerHTML = '';
+      emptyMsg.style.display = 'none';
+      return;
+    }
+    render(fuse.search(q));
+  });
+</script>

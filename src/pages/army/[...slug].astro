@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import ArmyMeta from '../../components/ArmyMeta.astro';
+import ModelTable from '../../components/ModelTable.astro';
+import { getPublishedPosts, getAllTags } from '../../utils/collections';
+import { slugify } from '../../utils/slugify';
+
+export async function getStaticPaths() {
+  const armies = await getCollection('army', ({ data }) => !data.draft);
+  return armies.map(army => ({ params: { slug: army.slug }, props: { army } }));
+}
+
+const { army } = Astro.props;
+const { Content } = await army.render();
+
+const recentPosts = await getPublishedPosts();
+const allTags = await getAllTags();
+
+const dateStr = army.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<Base title={army.data.title} description={army.data.description}>
+  <div class="wrap">
+    <article class="post_content">
+      <h1 class="post_title">{army.data.title}</h1>
+      <div class="post_meta">
+        <span>{dateStr}</span>
+        {army.data.tags.map(tag => (
+          <a href={`/tags/${slugify(tag)}/`} class="tag-chip">{tag}</a>
+        ))}
+      </div>
+
+      {army.data.featureImage && (
+        <div class="post_featured">
+          <img src={army.data.featureImage} alt={army.data.featureImageAlt ?? army.data.title} />
+        </div>
+      )}
+
+      <ArmyMeta scale={army.data.scale} rulesets={army.data.rulesets} />
+      <ModelTable models={army.data.models} />
+
+      <div class="post_body">
+        <Content />
+      </div>
+    </article>
+    <Sidebar recentPosts={recentPosts} allTags={allTags} />
+  </div>
+</Base>

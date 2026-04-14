@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPublishedPosts, getAllTags } from '../../utils/collections';
+
+const rulesets = await getCollection('ruleset', ({ data }) => !data.draft);
+rulesets.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const recentPosts = await getPublishedPosts();
+const allTags = await getAllTags();
+---
+
+<Base title="Rulesets">
+  <div class="wrap">
+    <div class="post_content">
+      <div class="page-header"><h1>Rulesets</h1></div>
+      <ul class="post-list">
+        {rulesets.map(r => (
+          <PostCard
+            title={r.data.title}
+            href={`/ruleset/${r.slug}/`}
+            date={r.data.date}
+            description={r.data.description}
+            thumbnail={r.data.thumbnail}
+            tags={r.data.tags}
+          />
+        ))}
+      </ul>
+    </div>
+    <Sidebar recentPosts={recentPosts} allTags={allTags} />
+  </div>
+</Base>
