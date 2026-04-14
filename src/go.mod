@@ -1,4 +1,4 @@
-module dubdub2.com
+module battlelinesdrawn.com
 
 go 1.19
 
