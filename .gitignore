@@ -1,0 +1,9 @@
+# Hugo default output directory
+/src/public
+# Hugo generated file cache
+/src/resources/*
+!/src/resources/.gitkeep
+/src/.hugo_build.lock
+
+# Emacs backup files
+*~

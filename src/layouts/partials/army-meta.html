@@ -1,0 +1,26 @@
+<h2>Introduction</h2>
+<table class="army-meta">
+<tbody>
+  <tr>
+    <th scope="row">Scale</th>
+    <td>
+      {{- with .Params.scale -}}
+        <span>{{- . }}</span>
+      {{- end }}
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">Rulesets</th>
+    <td>
+      {{- with .Params.rulesets -}}
+        {{- range . }}
+          {{- $ruleset_slug := urlize . -}}
+          <a href='{{ absLangURL (printf "ruleset/%s/" $ruleset_slug) }}' title="{{ . }}">
+            {{- . }}
+          </a>
+        {{- end }}
+      {{- end }}
+    </td>
+  </tr>
+</tbody>
+</table>
