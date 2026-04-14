@@ -1,2 +1,2 @@
 buildDrafts = true
-minify = false
+minify.minifyOutput = false
