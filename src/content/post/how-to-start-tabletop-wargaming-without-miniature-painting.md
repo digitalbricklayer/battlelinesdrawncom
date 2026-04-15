@@ -46,7 +46,7 @@ There are lots of ways to wargame that do not involve the modelling aspects of t
 
 There is a huge sub-genre of board games providing very detailed simulations of pretty well any war or major battle you care to mention. You can battle D-Day or Market Garden using beautiful printed boards with in some cases literally thousands of counters.
 
-![A game of Memoir '44](../../assets/memoir-44-1536x864.jpg)
+![A game of Memoir '44](../../assets/memoir-44-1536x864.jpg "A game of Memoir '44")
 
 ## Conclusion
 One option currently in its infancy is multi-colour 3D printing. Already it is common to see 3D printers able to print with up to 4 colours. I expect this is only going to increase. Being able to print fully "painted" miniatures is going to be a game changer for accessability in tabletop wargaming.
