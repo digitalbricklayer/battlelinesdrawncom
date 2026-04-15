@@ -8,12 +8,13 @@ const posts = await getPublishedPosts();
 const allTags = await getAllTags();
 ---
 
-<Base title="Posts">
+<Base title="Battle Lines Drawn Posts">
   <div class="wrap">
     <div class="post_content">
       <div class="page-header">
         <h1>Posts</h1>
       </div>
+      <p>The Battle Lines Drawn is a blog focusing on historical tabletop wargaming.</p>
       <ul class="post-list">
         {posts.map(p => (
           <PostCard
