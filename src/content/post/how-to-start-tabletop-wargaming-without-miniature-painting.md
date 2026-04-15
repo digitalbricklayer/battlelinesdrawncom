@@ -5,7 +5,6 @@ tags:
   - wargaming
 ---
 
-# How to Start Tabletop Wargaming without Miniature Painting
 It has always struck me as odd that tabletop wargaming effectively includes two hobbies in one. One hobby is military modelling and the other is using wargame rules on a tabletop battlefield.
 
 The most popular of the two hobbies is military modelling. A lot of people you will see at wargaming shows and in your local hobby store have never taken their painted miniatures anywhere near a tabletop and actually played a wargame.

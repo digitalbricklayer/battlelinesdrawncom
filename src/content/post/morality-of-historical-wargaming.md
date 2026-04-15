@@ -5,7 +5,6 @@ tags:
   - wargaming
 ---
 
-# The Morality of Historical Wargaming
 Is a hobby formed around war a moral thing to do? Historical wargaming deals with a particularly difficult topic. War is a brutal business whether it is in the ancient past or much more recent.
 
 I am not discussing professional wargaming. Professional wargaming is not a form of entertainment, it is designed to either train professional soldiers or as a means of planning.
