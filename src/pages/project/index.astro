@@ -12,10 +12,11 @@ const recentPosts = await getPublishedPosts();
 const allTags = await getAllTags();
 ---
 
-<Base title="Projects">
+<Base title="Battle Lines Drawn Projects">
   <div class="wrap">
     <div class="post_content">
       <div class="page-header"><h1>Projects</h1></div>
+      <p>All current, future and completed Battle Lines Drawn blog projects.</p>
       <ul class="post-list">
         {projects.map(p => (
           <PostCard

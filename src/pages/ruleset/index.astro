@@ -12,10 +12,11 @@ const recentPosts = await getPublishedPosts();
 const allTags = await getAllTags();
 ---
 
-<Base title="Rulesets">
+<Base title="Battle Lines Drawn Rules">
   <div class="wrap">
     <div class="post_content">
       <div class="page-header"><h1>Rulesets</h1></div>
+      <p>All wargaming rules currently of interest or actively in use on the Battle Lines Drawn blog.</p>
       <ul class="post-list">
         {rulesets.map(r => (
           <PostCard
