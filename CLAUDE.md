@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is an [Astro](https://astro.build/) static site for [battlelinesdrawn.com](https://battlelinesdrawn.com/), a tabletop wargaming blog focused on World War 2 gaming.
+This is an [Astro](https://astro.build/) static site for [battlelinesdrawn.com](https://battlelinesdrawn.com/), a tabletop wargaming blog focused on historical gaming.
 
 ## Commands
 
@@ -58,7 +58,7 @@ All CSS is in `src/styles/global.css` (no framework). Meta tables (`.army-meta`,
 
 ### Static Assets
 
-`public/` — icons, logos, images, `_redirects` (Netlify redirect rules).
+`public/` — icons, logos, images.
 
 ### Search
 
