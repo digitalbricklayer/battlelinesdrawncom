@@ -4,13 +4,33 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "sync": "astro sync",
+    "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.11",
-    "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.5.5",
-    "fuse.js": "^7.0.0"
+    "@astrojs/rss": "^4.0.14",
+    "@astrojs/sitemap": "^3.6.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.16.6",
+    "dayjs": "^1.11.19",
+    "lodash.kebabcase": "^4.1.1",
+    "remark-collapse": "^0.1.2",
+    "remark-toc": "^9.0.0",
+    "satori": "^0.18.3",
+    "sharp": "^0.34.5",
+    "slugify": "^1.6.6",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "@pagefind/default-ui": "^1.5.2",
+    "@shikijs/transformers": "^3.20.0",
+    "@tailwindcss/typography": "^0.5.19",
+    "@types/lodash.kebabcase": "^4.1.9",
+    "pagefind": "^1.5.2",
+    "typescript": "^5.9.3"
   }
 }

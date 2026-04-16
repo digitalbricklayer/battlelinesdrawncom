@@ -1,21 +1,18 @@
 ---
-import Base from '../layouts/Base.astro';
-import Sidebar from '../components/Sidebar.astro';
-import { getPublishedPosts, getAllTags } from '../utils/collections';
-
-const posts = await getPublishedPosts();
-const allTags = await getAllTags();
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE } from "@/config";
 ---
 
-<Base title="About" description="A description of the Battle Lines Drawn blog and what you can expect to read here.">
-  <div class="wrap">
-    <article class="post_content">
-      <h1 class="post_title">About Battle Lines Drawn</h1>
-      <div class="post_body">
-        <p>The Battle Lines Drawn blog is the online workspace of Jack Hughes to keep all of his wargaming thoughts and resources in a single silo for later reference. Jack is a keen tabletop wargamer using a variety of wargaming rules and scales.</p>
-        <p>Please note that I do not work for any of the wargaming companies mentioned on the blog nor am I affiliated in any way other than somebody who purchases their products and enjoys using them on the tabletop. Any opinions I express about the companies and their rules are entirely my opinion as a fan of these rules. I have never received any of the products mentioned here for free or at discounted rates. I pay exactly the same price as you probably have. Sometimes I pick things up on eBay for a good price but that’s between me and my PayPal account.</p>
-      </div>
+<Layout title={`About | ${SITE.title}`} description="A description of the Battle Lines Drawn blog and what you can expect to read here.">
+  <Header />
+  <main id="main-content" class="app-layout pb-4">
+    <h1 class="my-6 text-2xl font-semibold sm:text-3xl">About Battle Lines Drawn</h1>
+    <article class="prose max-w-none dark:prose-invert">
+      <p>The Battle Lines Drawn blog is the online workspace of Jack Hughes to keep all of his wargaming thoughts and resources in a single silo for later reference. Jack is a keen tabletop wargamer using a variety of wargaming rules and scales.</p>
+      <p>Please note that I do not work for any of the wargaming companies mentioned on the blog nor am I affiliated in any way other than somebody who purchases their products and enjoys using them on the tabletop. Any opinions I express about the companies and their rules are entirely my opinion as a fan of these rules. I have never received any of the products mentioned here for free or at discounted rates. I pay exactly the same price as you probably have.</p>
     </article>
-    <Sidebar recentPosts={posts} allTags={allTags} />
-  </div>
-</Base>
+  </main>
+  <Footer />
+</Layout>

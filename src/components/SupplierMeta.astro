@@ -8,22 +8,24 @@ interface Props {
 const { title, scales = [], website_url } = Astro.props;
 ---
 
-<div class="supplier-meta">
-  <h2>Introduction</h2>
-  <table>
+<div class="my-4 rounded border border-border p-4 text-sm">
+  <h2 class="mb-2 font-semibold">Details</h2>
+  <table class="w-full border-collapse">
     <tbody>
-      <tr>
-        <th scope="row">Scales</th>
-        <td>{scales.map(s => <span>{s} </span>)}</td>
-      </tr>
-      <tr>
-        <th scope="row">Website</th>
-        <td>
-          {website_url
-            ? <a href={website_url} target="_blank" rel="noopener noreferrer">{title}</a>
-            : ''}
-        </td>
-      </tr>
+      {scales.length > 0 && (
+        <tr class="border-b border-border">
+          <th scope="row" class="py-1 pr-4 text-left font-medium text-foreground/70">Scales</th>
+          <td class="py-1">{scales.join(', ')}</td>
+        </tr>
+      )}
+      {website_url && (
+        <tr class="border-b border-border">
+          <th scope="row" class="py-1 pr-4 text-left font-medium text-foreground/70">Website</th>
+          <td class="py-1">
+            <a href={website_url} target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">{title}</a>
+          </td>
+        </tr>
+      )}
     </tbody>
   </table>
 </div>
