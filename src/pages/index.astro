@@ -1,53 +1,99 @@
 ---
-import Base from '../layouts/Base.astro';
-import Sidebar from '../components/Sidebar.astro';
-import PostCard from '../components/PostCard.astro';
-import { getPublishedPosts, getAllTags } from '../utils/collections';
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import Card from "@/components/Card.astro";
+import getSortedPosts from "@/utils/getSortedPosts";
+import IconRss from "@/assets/icons/IconRss.svg";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import { SITE } from "@/config";
 
-const posts = await getPublishedPosts();
-const allTags = await getAllTags();
+const posts = await getCollection("blog");
 
-const featured = posts.filter(p => p.data.featured);
-const recent = posts.filter(p => !p.data.featured);
+const sortedPosts = getSortedPosts(posts);
+const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
+const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 ---
 
-<Base title="Home" description="One man's journey into tabletop wargaming and beyond.">
-  <div class="wrap">
-    <div class="post_content">
-      {featured.length > 0 && (
-        <section class="featured-section">
-          <h2>Featured</h2>
-          <ul class="post-list">
-            {featured.map(p => (
-              <PostCard
-                title={p.data.title}
-                href={`/post/${p.slug}/`}
-                date={p.data.date}
-                description={p.data.description}
-                thumbnail={p.data.thumbnail}
-                tags={p.data.tags}
-              />
+<Layout>
+  <Header />
+  <main id="main-content" data-layout="index" class="app-layout">
+    <section id="hero" class:list={["pt-8 pb-6", "border-b border-border"]}>
+      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
+        Battle Lines Drawn
+      </h1>
+      <a
+        target="_blank"
+        href="/rss.xml"
+        class="inline-block"
+        aria-label="rss feed"
+        title="RSS Feed"
+      >
+        <IconRss
+          width={20}
+          height={20}
+          class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
+        />
+        <span class="sr-only">RSS Feed</span>
+      </a>
+
+      <p>
+        A tabletop wargaming blog focused on World War 2 gaming. Covering battle reports,
+        painted armies, ongoing projects, rules reviews, and the suppliers we use.
+      </p>
+    </section>
+
+    {
+      featuredPosts.length > 0 && (
+        <section
+          id="featured"
+          class:list={[
+            "pt-12 pb-6",
+            { "border-b border-border": recentPosts.length > 0 },
+          ]}
+        >
+          <h2 class="text-2xl font-semibold tracking-wide">Featured</h2>
+          <ul>
+            {featuredPosts.map(data => (
+              <Card variant="h3" {...data} />
             ))}
           </ul>
         </section>
-      )}
+      )
+    }
 
-      <section>
-        <h2 class="page-header" style="border-bottom: 2px solid var(--color-border); padding-bottom: 0.5rem; margin-bottom: 1rem;">Recent Posts</h2>
-        <ul class="post-list">
-          {recent.slice(0, 10).map(p => (
-            <PostCard
-              title={p.data.title}
-              href={`/post/${p.slug}/`}
-              date={p.data.date}
-              description={p.data.description}
-              thumbnail={p.data.thumbnail}
-              tags={p.data.tags}
-            />
-          ))}
-        </ul>
-      </section>
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts" class="pt-12 pb-6">
+          <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
+          <ul>
+            {recentPosts.map(
+              (data, index) =>
+                index < SITE.postPerIndex && <Card variant="h3" {...data} />
+            )}
+          </ul>
+        </section>
+      )
+    }
+
+    <div class="my-8 text-center">
+      <LinkButton href="/posts/">
+        All Posts
+        <IconArrowRight class="inline-block rtl:-rotate-180" />
+      </LinkButton>
     </div>
-    <Sidebar recentPosts={posts} allTags={allTags} />
-  </div>
-</Base>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
+      ?.dataset?.layout;
+    if (indexLayout) {
+      sessionStorage.setItem("backUrl", "/");
+    }
+  });
+</script>

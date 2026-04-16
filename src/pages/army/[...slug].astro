@@ -1,11 +1,14 @@
 ---
-import { getCollection } from 'astro:content';
-import Base from '../../layouts/Base.astro';
-import Sidebar from '../../components/Sidebar.astro';
-import ArmyMeta from '../../components/ArmyMeta.astro';
-import ModelTable from '../../components/ModelTable.astro';
-import { getPublishedPosts, getAllTags } from '../../utils/collections';
-import { slugify } from '../../utils/slugify';
+import { getCollection, render } from 'astro:content';
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import BackButton from "@/components/BackButton.astro";
+import Tag from "@/components/Tag.astro";
+import ArmyMeta from "@/components/ArmyMeta.astro";
+import ModelTable from "@/components/ModelTable.astro";
+import { SITE } from "@/config";
+import { slugifyStr } from "@/utils/slugify";
 
 export async function getStaticPaths() {
   const armies = await getCollection('army', ({ data }) => !data.draft);
@@ -13,38 +16,26 @@ export async function getStaticPaths() {
 }
 
 const { army } = Astro.props;
-const { Content } = await army.render();
-
-const recentPosts = await getPublishedPosts();
-const allTags = await getAllTags();
-
-const dateStr = army.data.date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+const { Content } = await render(army);
 ---
 
-<Base title={army.data.title} description={army.data.description}>
-  <div class="wrap">
-    <article class="post_content">
-      <h1 class="post_title">{army.data.title}</h1>
-      <div class="post_meta">
-        <span>{dateStr}</span>
+<Layout title={`${army.data.title} | ${SITE.title}`} description={army.data.description}>
+  <Header />
+  <div class="app-layout pb-4">
+    {SITE.showBackButton && <BackButton />}
+    <main id="main-content">
+      <h1 class="text-2xl font-semibold sm:text-3xl">{army.data.title}</h1>
+      <ul class="my-3 flex flex-wrap gap-2">
         {army.data.tags.map(tag => (
-          <a href={`/tags/${slugify(tag)}/`} class="tag-chip">{tag}</a>
+          <Tag tag={slugifyStr(tag)} tagName={tag} size="sm" />
         ))}
-      </div>
-
-      {army.data.featureImage && (
-        <div class="post_featured">
-          <img src={army.data.featureImage} alt={army.data.featureImageAlt ?? army.data.title} />
-        </div>
-      )}
-
+      </ul>
       <ArmyMeta scale={army.data.scale} rulesets={army.data.rulesets} />
       <ModelTable models={army.data.models} />
-
-      <div class="post_body">
+      <article class="prose mt-6 max-w-none dark:prose-invert">
         <Content />
-      </div>
-    </article>
-    <Sidebar recentPosts={recentPosts} allTags={allTags} />
+      </article>
+    </main>
   </div>
-</Base>
+  <Footer />
+</Layout>

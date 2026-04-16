@@ -1,35 +1,47 @@
 ---
 import { getCollection } from 'astro:content';
-import Base from '../../layouts/Base.astro';
-import Sidebar from '../../components/Sidebar.astro';
-import PostCard from '../../components/PostCard.astro';
-import { getPublishedPosts, getAllTags } from '../../utils/collections';
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Main from "@/layouts/Main.astro";
+import { SITE } from "@/config";
 
 const projects = await getCollection('project', ({ data }) => !data.draft);
 projects.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-
-const recentPosts = await getPublishedPosts();
-const allTags = await getAllTags();
 ---
 
-<Base title="Battle Lines Drawn Projects">
-  <div class="wrap">
-    <div class="post_content">
-      <div class="page-header"><h1>Projects</h1></div>
-      <p>All current, future and completed Battle Lines Drawn blog projects.</p>
-      <ul class="post-list">
-        {projects.map(p => (
-          <PostCard
-            title={p.data.title}
-            href={`/project/${p.slug}/`}
-            date={p.data.date}
-            description={p.data.description}
-            thumbnail={p.data.thumbnail}
-            tags={p.data.tags}
-          />
-        ))}
-      </ul>
-    </div>
-    <Sidebar recentPosts={recentPosts} allTags={allTags} />
-  </div>
-</Base>
+<Layout title={`Projects | ${SITE.title}`}>
+  <Header />
+  <Main pageTitle="Projects" pageDesc="All current, future and completed Battle Lines Drawn blog projects.">
+    <ul>
+      {projects.map(project => (
+        <li class="my-6">
+          <a
+            href={`/project/${project.slug}/`}
+            class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 hover:underline"
+          >
+            <h2>{project.data.title}</h2>
+          </a>
+          {project.data.description && (
+            <p class="mt-1 text-foreground/80">{project.data.description}</p>
+          )}
+          {project.data.tags.length > 0 && (
+            <ul class="mt-2 flex flex-wrap gap-2">
+              {project.data.tags.map(tag => (
+                <li>
+                  <a
+                    href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}/`}
+                    class="text-sm text-accent hover:underline"
+                  >
+                    #{tag}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
+  </Main>
+  <Footer />
+</Layout>

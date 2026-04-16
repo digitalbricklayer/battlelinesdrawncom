@@ -1,35 +1,47 @@
 ---
 import { getCollection } from 'astro:content';
-import Base from '../../layouts/Base.astro';
-import Sidebar from '../../components/Sidebar.astro';
-import PostCard from '../../components/PostCard.astro';
-import { getPublishedPosts, getAllTags } from '../../utils/collections';
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Main from "@/layouts/Main.astro";
+import { SITE } from "@/config";
 
 const suppliers = await getCollection('supplier', ({ data }) => !data.draft);
 suppliers.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-
-const recentPosts = await getPublishedPosts();
-const allTags = await getAllTags();
 ---
 
-<Base title="Battle Lines Drawn Suppliers">
-  <div class="wrap">
-    <div class="post_content">
-      <div class="page-header"><h1>Suppliers</h1></div>
-      <p>All of the wargaming suppliers used by the Battle Lines Drawn blog. I am not sponsored by any of these suppliers, I pay for things exactly the same as you do. If I ever receive sponsored material (I won't), that will be noted prominently.</p>
-      <ul class="post-list">
-        {suppliers.map(s => (
-          <PostCard
-            title={s.data.title}
-            href={`/supplier/${s.slug}/`}
-            date={s.data.date}
-            description={s.data.description}
-            thumbnail={s.data.thumbnail}
-            tags={s.data.tags}
-          />
-        ))}
-      </ul>
-    </div>
-    <Sidebar recentPosts={recentPosts} allTags={allTags} />
-  </div>
-</Base>
+<Layout title={`Suppliers | ${SITE.title}`}>
+  <Header />
+  <Main pageTitle="Suppliers" pageDesc="All of the wargaming suppliers used by the Battle Lines Drawn blog. Not sponsored — I pay the same as you.">
+    <ul>
+      {suppliers.map(supplier => (
+        <li class="my-6">
+          <a
+            href={`/supplier/${supplier.slug}/`}
+            class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 hover:underline"
+          >
+            <h2>{supplier.data.title}</h2>
+          </a>
+          {supplier.data.description && (
+            <p class="mt-1 text-foreground/80">{supplier.data.description}</p>
+          )}
+          {supplier.data.tags.length > 0 && (
+            <ul class="mt-2 flex flex-wrap gap-2">
+              {supplier.data.tags.map(tag => (
+                <li>
+                  <a
+                    href={`/tags/${tag.toLowerCase().replace(/\s+/g, '-')}/`}
+                    class="text-sm text-accent hover:underline"
+                  >
+                    #{tag}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
+  </Main>
+  <Footer />
+</Layout>

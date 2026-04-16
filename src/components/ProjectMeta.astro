@@ -1,6 +1,5 @@
 ---
-import { slugify } from '../utils/slugify';
-import ModelTable from './ModelTable.astro';
+import { slugifyStr } from "@/utils/slugify";
 
 interface Model {
   name: string;
@@ -12,51 +11,66 @@ interface Model {
 interface Props {
   scale?: string | number;
   suppliers?: string[];
-  started?: Date | null;
-  completed?: Date | null;
+  started?: Date;
+  completed?: Date;
   rulesets?: string[];
   models?: Model[];
 }
 
-const { scale, suppliers = [], started, completed, rulesets = [], models = [] } = Astro.props;
+const { scale, suppliers = [], started, completed, rulesets = [] } = Astro.props;
 
-const fmt = (d: Date) => d.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" });
 ---
 
-<div class="project-meta">
-  <h2>Introduction</h2>
-  <table>
+<div class="my-4 rounded border border-border p-4 text-sm">
+  <h2 class="mb-2 font-semibold">Details</h2>
+  <table class="w-full border-collapse">
     <tbody>
-      <tr>
-        <th scope="row">Started</th>
-        <td>{started ? fmt(started) : ''}</td>
-      </tr>
-      <tr>
-        <th scope="row">Completed</th>
-        <td>{completed ? fmt(completed) : ''}</td>
-      </tr>
-      <tr>
-        <th scope="row">Scale</th>
-        <td>{scale ?? ''}</td>
-      </tr>
-      <tr>
-        <th scope="row">Suppliers</th>
-        <td>
-          {suppliers.map(s => (
-            <a href={`/supplier/${slugify(s)}/`}>{s}</a>
-          ))}
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">Rulesets</th>
-        <td>
-          {rulesets.map(r => (
-            <a href={`/ruleset/${slugify(r)}/`}>{r}</a>
-          ))}
-        </td>
-      </tr>
+      {started && (
+        <tr class="border-b border-border">
+          <th scope="row" class="py-1 pr-4 text-left font-medium text-foreground/70">Started</th>
+          <td class="py-1">{fmt(started)}</td>
+        </tr>
+      )}
+      {completed && (
+        <tr class="border-b border-border">
+          <th scope="row" class="py-1 pr-4 text-left font-medium text-foreground/70">Completed</th>
+          <td class="py-1">{fmt(completed)}</td>
+        </tr>
+      )}
+      {scale && (
+        <tr class="border-b border-border">
+          <th scope="row" class="py-1 pr-4 text-left font-medium text-foreground/70">Scale</th>
+          <td class="py-1">{scale}</td>
+        </tr>
+      )}
+      {suppliers.length > 0 && (
+        <tr class="border-b border-border">
+          <th scope="row" class="py-1 pr-4 text-left font-medium text-foreground/70">Suppliers</th>
+          <td class="py-1">
+            {suppliers.map((s, i) => (
+              <>
+                <a href={`/supplier/${slugifyStr(s)}/`} class="text-accent hover:underline">{s}</a>
+                {i < suppliers.length - 1 && ', '}
+              </>
+            ))}
+          </td>
+        </tr>
+      )}
+      {rulesets.length > 0 && (
+        <tr class="border-b border-border">
+          <th scope="row" class="py-1 pr-4 text-left font-medium text-foreground/70">Rulesets</th>
+          <td class="py-1">
+            {rulesets.map((r, i) => (
+              <>
+                <a href={`/ruleset/${slugifyStr(r)}/`} class="text-accent hover:underline">{r}</a>
+                {i < rulesets.length - 1 && ', '}
+              </>
+            ))}
+          </td>
+        </tr>
+      )}
     </tbody>
   </table>
 </div>
-
-<ModelTable models={models} />

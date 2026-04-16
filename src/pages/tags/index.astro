@@ -1,20 +1,24 @@
 ---
-import Base from '../../layouts/Base.astro';
-import { getAllTags } from '../../utils/collections';
-import { slugify } from '../../utils/slugify';
+import { getCollection } from "astro:content";
+import Main from "@/layouts/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+import Tag from "@/components/Tag.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import getUniqueTags from "@/utils/getUniqueTags";
+import { SITE } from "@/config";
 
-const allTags = await getAllTags();
+const posts = await getCollection("blog");
+
+let tags = getUniqueTags(posts);
 ---
 
-<Base title="Tags">
-  <div class="wrap full-width">
-    <div class="post_content">
-      <div class="page-header"><h1>Tags</h1></div>
-      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
-        {allTags.map(tag => (
-          <a href={`/tags/${slugify(tag)}/`} class="tag-chip" style="font-size: 1rem; padding: 0.3em 0.8em;">{tag}</a>
-        ))}
-      </div>
-    </div>
-  </div>
-</Base>
+<Layout title={`Tags | ${SITE.title}`}>
+  <Header />
+  <Main pageTitle="Tags" pageDesc="All the tags used in posts.">
+    <ul class="flex flex-wrap gap-6">
+      {tags.map(({ tag, tagName }) => <Tag {tag} {tagName} />)}
+    </ul>
+  </Main>
+  <Footer />
+</Layout>

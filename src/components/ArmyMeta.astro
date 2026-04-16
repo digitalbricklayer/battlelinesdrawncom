@@ -1,5 +1,5 @@
 ---
-import { slugify } from '../utils/slugify';
+import { slugifyStr } from "@/utils/slugify";
 
 interface Props {
   scale?: string;
@@ -9,22 +9,29 @@ interface Props {
 const { scale, rulesets = [] } = Astro.props;
 ---
 
-<div class="army-meta">
-  <h2>Introduction</h2>
-  <table>
+<div class="my-4 rounded border border-border p-4 text-sm">
+  <h2 class="mb-2 font-semibold">Details</h2>
+  <table class="w-full border-collapse">
     <tbody>
-      <tr>
-        <th scope="row">Scale</th>
-        <td>{scale ?? ''}</td>
-      </tr>
-      <tr>
-        <th scope="row">Rulesets</th>
-        <td>
-          {rulesets.map(r => (
-            <a href={`/ruleset/${slugify(r)}/`}>{r}</a>
-          ))}
-        </td>
-      </tr>
+      {scale && (
+        <tr class="border-b border-border">
+          <th scope="row" class="py-1 pr-4 text-left font-medium text-foreground/70">Scale</th>
+          <td class="py-1">{scale}</td>
+        </tr>
+      )}
+      {rulesets.length > 0 && (
+        <tr class="border-b border-border">
+          <th scope="row" class="py-1 pr-4 text-left font-medium text-foreground/70">Rulesets</th>
+          <td class="py-1">
+            {rulesets.map((r, i) => (
+              <>
+                <a href={`/ruleset/${slugifyStr(r)}/`} class="text-accent hover:underline">{r}</a>
+                {i < rulesets.length - 1 && ', '}
+              </>
+            ))}
+          </td>
+        </tr>
+      )}
     </tbody>
   </table>
 </div>

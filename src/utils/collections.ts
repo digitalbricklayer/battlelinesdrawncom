@@ -1,15 +1,15 @@
 import { getCollection } from 'astro:content';
 
-/** Returns all published posts sorted newest-first. */
+/** Returns all published blog posts sorted newest-first. */
 export async function getPublishedPosts() {
-  const posts = await getCollection('post', ({ data }) => !data.draft);
-  return posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.sort((a, b) => b.data.pubDatetime.valueOf() - a.data.pubDatetime.valueOf());
 }
 
 /** Returns all tags across all collections, sorted by frequency (desc). */
 export async function getAllTags(): Promise<string[]> {
   const [posts, armies, projects, rulesets, suppliers] = await Promise.all([
-    getCollection('post'),
+    getCollection('blog'),
     getCollection('army'),
     getCollection('project'),
     getCollection('ruleset'),
