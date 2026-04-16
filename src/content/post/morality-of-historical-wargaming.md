@@ -1,6 +1,7 @@
 ---
 title: The Morality of Historical Wargaming
-date: 2026-04-15
+pubDatetime: 2026-04-15
+description: Is historical tabletop wargaming a moral hobby? A look at how wargamers should approach the ethics of recreating real battles on the tabletop.
 tags:
   - wargaming
 ---
