@@ -1,6 +1,6 @@
 # battlelinesdrawn.com
 
-The Battle Lines Drawn blog, built with [Astro](https://astro.build/).
+The Battle Lines Drawn blog, built with [Astro](https://astro.build/) and the [AstroPaper](https://github.com/satnaing/astro-paper) theme.
 
 ## Commands
 
