@@ -1,6 +1,6 @@
 ---
 title: The Morality of Historical Wargaming
-pubDatetime: 2026-04-15
+pubDatetime: 2024-03-18
 description: Is historical tabletop wargaming a moral hobby? A look at how wargamers should approach the ethics of recreating real battles on the tabletop.
 tags:
   - wargaming
@@ -21,8 +21,8 @@ The fact is that tabletop wargaming, films or computer games do not involve actu
 I have never been pushed to violence when playing a tabletop wargame and I've have never seen anybody else either. For the most part, historical wargamers are very interested in the history of the periods they play and use tabletop games to explore the units and tactics used in real battles.
 
 Tabletop wargaming is _moral_. Having said that, there are a couple of things I don't like to see on the tabletop that are regularly seen in films and computer games.
-## Symbols Count
 
+## Symbols Count
 Wargaming does not exist in a vacuum. People outside our hobby and those within are likely to judge us based upon our behaviour. One of those behaviours is our use of potentially contentious symbols and what those symbols communicate about you to other people in the hobby as well as those outside.
 
 The Nazis used to drape their flags over their tanks for identification purposes, but that doesn't mean you have to. You also don't have to use dice with swastikas or SS symbols. If you play with an army draped in Nazi flags, have dice with swastikas and other wargaming paraphernalia covered in Nazi symbols, don't be amazed if people get the idea your politics veers to the hard right.
@@ -32,11 +32,11 @@ I appreciate that there is no legal reason not to use Nazi symbols in the UK (Na
 The last thing we want as a hobby is for outsiders to get the idea that wargaming is synonymous with the far right. I know that it is not, but if people see Nazi symbols everywhere, you can't blame them for jumping to the wrong conclusion.
 
 There are of course other symbols that may be problematic. If you are in the USA, there may be sensitivities around the Confederate flag. Think carefully about whether your American Civil War Confederate army needs to be draped in Confederate flags. I don't mean that the flag should be banned, just that you should be sensitive to how visible the flag is. Having small flags on the battlefield does make the units easier to identify. But, does having Confederate flags on your dice and elsewhere add much flavour? Personally, I don't think it does and so it is not worth the potential downside.
+
 ## Historical Soldiers
-
 The death of a loved one is particularly distressing in war and wargamers should not take it lightly. Any war fought in the last 50 years would make me wary of placing historical figures on the battlefield. Anything earlier than that I think is fine. Having Alexander the Great as a figure on the battlefield isn't likely to cause any of his many descendants a problem. Having soldiers with living relatives I think could cause offence.
-## Conclusion
 
+## Conclusion
 When wargaming we are re-enacting a battle or a form of battle using miniatures. There is nothing immoral about doing that. But, we do need to be sensitive to how wargaming looks to those in the hobby and those outside.
 
 We also need to be sensitive to more recent wars where close relatives are still alive. Be cautious in your use of named officers and men.

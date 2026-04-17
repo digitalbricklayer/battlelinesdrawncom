@@ -1,6 +1,6 @@
 ---
 title: How to Start Tabletop Wargaming without Miniature Painting
-pubDatetime: 2026-04-15
+pubDatetime: 2024-04-18
 description: You don't have to paint miniatures to enjoy tabletop wargaming. Here are the options that get you to the tabletop without picking up a brush.
 tags:
   - wargaming
