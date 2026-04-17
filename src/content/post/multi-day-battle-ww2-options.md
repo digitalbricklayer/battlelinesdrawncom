@@ -1,6 +1,7 @@
 ---
 title: Options for playing multi day World War 2 battles on the tabletop
 description: "An outline of your options for playing large multi-day battles on the tabletop"
+pubDatetime: 2026-04-18
 draft: true
 ---
 
