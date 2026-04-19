@@ -2,7 +2,7 @@ export const SITE = {
   website: "https://battlelinesdrawn.com/",
   author: "Jack Hughes",
   profile: "https://battlelinesdrawn.com/about-us/",
-  desc: "The Battle Lines Drawn blog is the online workspace of Jack Hughes to keep all of his wargaming thoughts and resources in a single silo for later reference.",
+  desc: "A tabletop wargaming blog covering World War 2 historical gaming — battle reports, painted armies, project logs, ruleset reviews, and miniature supplier guides.",
   title: "Battle Lines Drawn",
   ogImage: "og-image.jpg",
   lightAndDarkMode: false,
