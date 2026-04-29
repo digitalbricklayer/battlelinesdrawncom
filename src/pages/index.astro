@@ -57,13 +57,13 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       </div>
     </section>
 
-    <div class="w-full">
+    <div class="app-layout">
       <Image
         src={heroBanner}
         alt="Tabletop wargaming scene"
         class="w-full h-auto"
         widths={[640, 1280, 1920, 2560]}
-        sizes="100vw"
+        sizes="(max-width: 768px) 100vw, 768px"
       />
     </div>
 
