@@ -73,7 +73,7 @@ canonicalURL: string   # optional
 - `Layout.astro` — main layout: ClientRouter view transitions, theme system, OG/Twitter meta, structured data
 - `PostDetails.astro` — blog post layout: prev/next nav, scroll progress bar, heading anchors, code copy buttons
 - `Main.astro` — page wrapper with Breadcrumb and back-URL tracking
-- `Base.astro` — minimal legacy layout used by a small number of pages
+
 
 ### Components
 
