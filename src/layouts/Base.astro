@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { SITE } from '../config';
 import '../styles/global.css';
 
 interface Props {
@@ -36,6 +37,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:site_name" content={siteName} />
     {image && <meta property="og:image" content={image} />}
+    {image && <meta property="og:image:alt" content={description} />}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content={SITE.author} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
 
     <!-- Favicons -->
     <link rel="icon" href="/icons/favicon.ico" sizes="any" />
@@ -46,6 +54,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- RSS -->
     <link rel="alternate" type="application/rss+xml" title={siteName} href="/rss.xml" />
+    <meta name="theme-color" content="#fdfdfd" />
   </head>
   <body>
     <div class="site-wrapper">

@@ -19,7 +19,10 @@ const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
 ---
 
-<Layout>
+<Layout
+  title="Battle Lines Drawn | World War 2 Tabletop Wargaming Blog"
+  description="A tabletop wargaming blog covering World War 2 historical gaming with battle reports, painted armies, project logs, ruleset reviews, and supplier guides."
+>
   <Header />
   <main id="main-content" data-layout="index">
     <section id="hero" class="border-b border-border py-16 text-center">

@@ -30,6 +30,7 @@ const {
 } = Astro.props;
 
 const socialImageURL = new URL(ogImage, Astro.url);
+const ogType = pubDatetime ? "article" : "website";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -75,10 +76,12 @@ const structuredData = {
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:alt" content={description} />
 
     <!-- Article Published/Modified time -->
     {
@@ -100,6 +103,7 @@ const structuredData = {
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content={author} />
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
@@ -121,7 +125,7 @@ const structuredData = {
       href={new URL("rss.xml", Astro.site)}
     />
 
-    <meta name="theme-color" content="" />
+    <meta name="theme-color" content="#fdfdfd" />
 
     {
       // If PUBLIC_GOOGLE_SITE_VERIFICATION is set in the environment variable,
