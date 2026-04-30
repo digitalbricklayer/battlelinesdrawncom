@@ -8,12 +8,8 @@ export async function getPublishedPosts() {
 
 /** Returns all tags across all collections, sorted by frequency (desc). */
 export async function getAllTags(): Promise<string[]> {
-  const [posts, armies, projects, rulesets, suppliers] = await Promise.all([
+  const [posts] = await Promise.all([
     getCollection('blog'),
-    getCollection('army'),
-    getCollection('project'),
-    getCollection('ruleset'),
-    getCollection('supplier'),
   ]);
 
   const counts = new Map<string, number>();
@@ -23,7 +19,7 @@ export async function getAllTags(): Promise<string[]> {
     }
   };
 
-  for (const c of [...posts, ...armies, ...projects, ...rulesets, ...suppliers]) {
+  for (const c of [...posts]) {
     add(c.data.tags ?? []);
   }
 
