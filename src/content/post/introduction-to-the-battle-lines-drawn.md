@@ -11,7 +11,7 @@ tags:
 
 My name is Jack Hughes and I am relatively new to wargaming. My journey started in September 2016 with a game of Memoir ’44. Just one game was enough to wet my appetite.
 
-We are very lucky living in West Yorkshire to have three wargaming conventions close by, [FIASCO](https://leedswargamesclub.com/sig-int/f/fiasco-22), Recon and Vapnartak. (If you want to be pedantic, Vapnartak is in North Yorkshire.)After my one game of Memoir ’44, I headed to my local show. I attended FIASCO at the [Royal Armouries](https://royalarmouries.org/) in Leeds and discovered the world of participation tabletop wargames.
+We are very lucky living in West Yorkshire to have three wargaming conventions close by, [FIASCO](https://leedswargamesclub.com/sig-int/f/fiasco-22), Recon and Vapnartak. (If you want to be pedantic, Vapnartak is in North Yorkshire.) After my one game of Memoir ’44, I headed to my local show. I attended FIASCO at the [Royal Armouries](https://royalarmouries.org/) in Leeds and discovered the world of participation tabletop wargames.
 
 ## A Sampling of Flames of War
 Whilst at FIASCO for the first time I encountered the [Leeds Night Owls wargames club](https://leedsnightowls.com/). Happily the club meet every Sunday morning within a 30 minute drive of my home. I ventured forth one Sunday and attended the club. I was given a warm welcome and was introduced to the joys of tabletop wargaming. My first game proper was Flames of War version 3.
