@@ -80,8 +80,6 @@ canonicalURL: string   # optional
 `src/components/` — reusable UI:
 - `Card.astro` — post card used on every list page
 - `Header.astro`, `Footer.astro` — site chrome (no sidebar)
-- `ModelTable.astro` — shared models table for army and project pages
-- `ArmyMeta.astro`, `ProjectMeta.astro`, `RulesetMeta.astro`, `SupplierMeta.astro` — per-type metadata tables
 
 ### Utilities
 
