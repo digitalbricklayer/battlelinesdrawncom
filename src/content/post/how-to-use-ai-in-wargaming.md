@@ -2,6 +2,9 @@
 title: How to Enhance your Wargaming using AI
 description: "A description of how I use AI to help get more out of my hobby of wargaming with some examples of prompts I use as well as the AI responses."
 pubDatetime: 2026-05-06
+tags:
+  - sci-fi
+  - Void Admiral
 ---
 
 There are many ways you can use AI within the wargaming hobby, here are some of the ways I have used it:
