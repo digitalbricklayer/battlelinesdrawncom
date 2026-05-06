@@ -2,6 +2,9 @@
 title: How to Enhance your Wargaming using AI
 description: "A description of how I use AI to help get more out of my hobby of wargaming"
 pubDatetime: 2026-05-02
+tags:
+  - sci-fi
+  - Void Admiral
 draft: true
 ---
 
