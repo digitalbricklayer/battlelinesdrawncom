@@ -1,69 +1,22 @@
 ---
 title: How to Enhance your Wargaming using AI
-description: "A description of how I use AI to help get more out of my hobby of wargaming"
-pubDatetime: 2026-05-02
-draft: true
+description: "A description of how I use AI to help get more out of my hobby of wargaming with some examples of prompts I use as well as the AI responses."
+pubDatetime: 2026-05-06
 ---
 
 There are many ways you can use AI within the wargaming hobby, here are some of the ways I have used it:
-1. Understanding the rules. Rules can be complex so it can be handy to get some insight without having to trawl through potentially hundreds of pages of rulebook and FAQ.
+1. Understanding the rules. Rules can be complex so it can be handy to get some insight without having to trawl through potentially hundreds of pages of rulebook, errata and FAQ.
 2. Scenario / map generation
 3. List generation
 4. Strategy generation
 
 I have found AI to be particularly useful in #1. Google's Gemini and NotebookLM are great tools for creating your own rules expert.
 
-Every time I buy a new ruleset I now always buy the PDF version as well as the printed version. Then I can create a NotebookLM notebook and upload the rules PDF as well as any other material like FAQs, scenario books and army lists. I then write a note for NotebookLM to tell it about the resources I've uploaded and how to use them. For instance, if I've uploaded an FAQ I tell NotebookLM that if the FAQ contradicts the rulebook, then use the FAQ version. Gemini Gems is another way to achieve the same thing. You can build your own mini rules "expert" and even link your NotebookLM notebook as a source.
+Every time I buy a new ruleset I now always buy the PDF version as well as the printed version. Then I can create a NotebookLM notebook and upload the rules PDF as well as any other material like FAQs, scenario books and army lists. I then write a note for NotebookLM to tell it about the resources I've uploaded and how to use them. For instance, if I've uploaded an FAQ or errata I tell NotebookLM that those documents are to be used if they contradict the rulebook. Gemini Gems are another way to achieve the same thing. You can build your own mini rules "expert" and even link your NotebookLM notebook as a source.
 
-Now I have a really valuable resource. I can ask NotebookLM questions or my Gemini Gem about the rules and their interpretation and get back remarkably good answers that reference the relevant parts of my reference material and uses appropriate rules specific terminology.
+Once I've created my notebook or gem I have a really valuable resource. I can ask NotebookLM questions or my Gemini Gem about the rules and their interpretation and get back remarkably good answers that reference the relevant parts of my reference material and uses appropriate rules specific terminology.
 
 ## Examples
-
-### Altar of Freedom List
-I created a notebook with the [Altar of Freedom](https://www.6mmacw.com/) American Civil War rulebook and the eastern theatre scenario PDFs.
-
-I then asked `Create an order of battle for the confederate side at the battle of Manassas`.
-
-This is the response NotebookLM gave:
-
-> At the **Battle of First Manassas** on July 21, 1861, the Confederate forces consisted of the **Combined Confederate Armies**, specifically the **Army of the Potomac** and the **Army of the Shenandoah**. While General Joseph E. Johnston was senior in rank, he deferred overall command to **General P.G.T. Beauregard** for the engagement because Beauregard was more familiar with the terrain and defensive organization.
-> 
-> According to the sources, the Confederate order of battle is organized as follows:
-> 
-> ### **Army Commanders**
-> *   **General P.G.T. Beauregard** (Tactical Command)
-> *   **General Joseph E. Johnston**
-> 
-> ### **Beauregard’s Division (Army of the Potomac)**
-> *   **Bonham Brigade** (+3 Strength Modifier)
-> *   **Early Brigade** (+2 Strength Modifier)
-> *   **Ewell Brigade** (+2 Strength Modifier)
-> *   **Evans Brigade** (-2 Strength Modifier)
-> *   **Jones Brigade** (+3 Strength Modifier)
-> *   **Holmes Brigade** (-2 Strength Modifier)
-> *   **Longstreet Brigade** (+2 Strength Modifier)
-> *   **Cocke Brigade** (-2 Strength Modifier)
-> *   **Kemper Artillery** (+0 Strength Modifier)
-> *   **Rosser Artillery** (+0 Strength Modifier)
-> *   **Garnett Artillery** (+0 Strength Modifier)
-> 
-> ### **Johnston’s Division (Army of the Shenandoah)**
-> *   **Jackson Brigade** (+3 Strength Modifier)
-> *   **Bartow Brigade** (-2 Strength Modifier)
-> *   **Bee Brigade** (+0 Strength Modifier)
-> *   **Smith Brigade** (-2 Strength Modifier; arrives as reinforcement at 12:00pm)
-> *   **Stuart Cavalry** (-3 Strength Modifier)
-> *   **Pendleton Artillery** (+0 Strength Modifier)
-> 
-> ***
-> 
-> **Historical and Technical Notes:**
-> *   **Army Structure:** The sources describe the Confederate organization as being divided into **two large, unwieldy divisions**. 
-> *   **Army Morale:** The Confederate army is classified as "**steady**" with a **breakpoint of 5**. This means the army would be forced to quit the field if it lost 5 or more elements, such as brigades, generals, or HQs.
-> *   **Strength Modifiers:** The numbers in parentheses (e.g., +3 or -2) are modifiers reflecting the size and experience of the units relative to the average brigade size of **2,100 men**.
-> *   **Victory Objectives:** To win, the Confederates were tasked with either breaking the Union army or contesting control of **Centreville**.
-> 
-> To visualize this, imagine the Confederate side as a **partnership between two distinct companies** that have joined forces for a specific project: Beauregard brought the local expertise and the bulk of the staff, while Johnston arrived with additional specialized teams to bolster the effort.
 
 ### Void Admiral Turn
 I entered the following prompt `Give me a step by step process of a single turn` into a Gemini Gem sourced with the Void Admiral rulebook and the factions all in the form of two PDFs.
@@ -136,5 +89,57 @@ I used to the following prompt: `I want to play an aggressive play style, what f
 
 There you go, a simple list, a faction and recommendations for how to best use it on the tabletop. For a beginner with Void Admiral like me, that's a great start.
 
+### Altar of Freedom List
+I created a notebook with the [Altar of Freedom](https://www.6mmacw.com/) American Civil War rulebook and the eastern theatre scenario PDFs.
+
+I then asked `Create an order of battle for the confederate side at the battle of Manassas`.
+
+This is the response NotebookLM gave:
+
+> At the **Battle of First Manassas** on July 21, 1861, the Confederate forces consisted of the **Combined Confederate Armies**, specifically the **Army of the Potomac** and the **Army of the Shenandoah**. While General Joseph E. Johnston was senior in rank, he deferred overall command to **General P.G.T. Beauregard** for the engagement because Beauregard was more familiar with the terrain and defensive organization.
+> 
+> According to the sources, the Confederate order of battle is organized as follows:
+> 
+> ### **Army Commanders**
+> *   **General P.G.T. Beauregard** (Tactical Command)
+> *   **General Joseph E. Johnston**
+> 
+> ### **Beauregard’s Division (Army of the Potomac)**
+> *   **Bonham Brigade** (+3 Strength Modifier)
+> *   **Early Brigade** (+2 Strength Modifier)
+> *   **Ewell Brigade** (+2 Strength Modifier)
+> *   **Evans Brigade** (-2 Strength Modifier)
+> *   **Jones Brigade** (+3 Strength Modifier)
+> *   **Holmes Brigade** (-2 Strength Modifier)
+> *   **Longstreet Brigade** (+2 Strength Modifier)
+> *   **Cocke Brigade** (-2 Strength Modifier)
+> *   **Kemper Artillery** (+0 Strength Modifier)
+> *   **Rosser Artillery** (+0 Strength Modifier)
+> *   **Garnett Artillery** (+0 Strength Modifier)
+> 
+> ### **Johnston’s Division (Army of the Shenandoah)**
+> *   **Jackson Brigade** (+3 Strength Modifier)
+> *   **Bartow Brigade** (-2 Strength Modifier)
+> *   **Bee Brigade** (+0 Strength Modifier)
+> *   **Smith Brigade** (-2 Strength Modifier; arrives as reinforcement at 12:00pm)
+> *   **Stuart Cavalry** (-3 Strength Modifier)
+> *   **Pendleton Artillery** (+0 Strength Modifier)
+> 
+> ***
+> 
+> **Historical and Technical Notes:**
+> *   **Army Structure:** The sources describe the Confederate organization as being divided into **two large, unwieldy divisions**. 
+> *   **Army Morale:** The Confederate army is classified as "**steady**" with a **breakpoint of 5**. This means the army would be forced to quit the field if it lost 5 or more elements, such as brigades, generals, or HQs.
+> *   **Strength Modifiers:** The numbers in parentheses (e.g., +3 or -2) are modifiers reflecting the size and experience of the units relative to the average brigade size of **2,100 men**.
+> *   **Victory Objectives:** To win, the Confederates were tasked with either breaking the Union army or contesting control of **Centreville**.
+> 
+> To visualize this, imagine the Confederate side as a **partnership between two distinct companies** that have joined forces for a specific project: Beauregard brought the local expertise and the bulk of the staff, while Johnston arrived with additional specialized teams to bolster the effort.
+
 ## Conclusion
 The barrier to entry for AI is incredibly low. All of the tools I've used here are free. You just need a free google account (and, if you have a gmail account you already have one) and you can head over to [Gemini](https://gemini.google.com/app) or [NotebookLM](https://notebooklm.google.com) and start using them now. I've used other tools like Claude and you'd have no problem using it to do something similar. You can create a project and add sources to that. I'm not familiar with ChatGPT but I'd wager you can do something similar there.
+
+I suppose a big question is, does AI add to the hobby? I think it has added to my enjoyment of the hobby by making new rules more accessible and by extension wargaming genres easier to enter. I can't say that I particularly enjoy the nitty gritty of learning sometimes quite complex rulesets, so anything that can reduce the learning curve is going to be gratefully received here. One of the accusations sometimes thrown at AI is that it can make you really lazy by deferring all of your thinking to it. I do not do that. I do not use AI at the gaming table, I just use it to help me learning the rules, giving me a head start into creating a list or a bit of strategy. That's it.
+
+Are we heading to time when there is more AI use in the wargaming hobby. Very probably. I don't think it will all be bad. It would be handy to be able to solo wargame with a convincing opponent. If we are all going to have a rule expert in our pocket, then that's going to be handy. It might reduce the load on your club's rule lawyer somewhat.
+
+On the other hand, when I play I want to play against a real person. Not against their pocket friend. I haven't seen any sign of AI seeping into club sessions as yet so we'll have to see.
