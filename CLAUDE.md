@@ -27,10 +27,6 @@ Schemas are defined in `src/content.config.ts` (the new Astro Content Layer API 
 | Collection | Directory | Purpose |
 |------------|-----------|---------|
 | `blog` | `src/content/post/` | Blog articles |
-| `army` | `src/content/army/` | Painted army showcase pages |
-| `project` | `src/content/project/` | Wargaming project pages |
-| `ruleset` | `src/content/ruleset/` | Ruleset reference pages |
-| `supplier` | `src/content/supplier/` | Miniature supplier pages |
 
 **Blog post front matter** (AstroPaper fields — `pubDatetime` and `description` are required):
 
@@ -47,25 +43,14 @@ ogImage: image|string  # optional
 canonicalURL: string   # optional
 ```
 
-**Custom content front matter** (army, project, ruleset, supplier all share `title`, `date`, `description`, `tags[]`, `featureImage`, `featureImageAlt`, `thumbnail`, `draft`):
-
-- **army**: `scale`, `models[]` (`name`/`qty`/`sku`/`supplier`), `rulesets[]`
-- **project**: `scale`, `suppliers[]`, `started`, `completed`, `rulesets[]`, `models[]`
-- **ruleset**: `supplier`, `scales[]`, `authors[]`
-- **supplier**: `scales[]`, `website_url`
-
 ### Pages & Routing
 
 `src/pages/` structure:
-- `/` — home (recent posts)
+- `/` — home (hero section and recent posts)
 - `/posts/[...page]` — paginated blog list
 - `/posts/[...slug]/` — individual blog post
 - `/tags/` and `/tags/[tag]/[...page]` — tag index and filtered list
 - `/archives/` — posts grouped by date (enabled via `showArchives` in config)
-- `/army/`, `/army/[...slug]` — army list and detail
-- `/project/`, `/project/[...slug]` — project list and detail
-- `/ruleset/`, `/ruleset/[...slug]` — ruleset list and detail
-- `/supplier/`, `/supplier/[...slug]` — supplier list and detail
 - `/about-us/`, `/search/`, `/rss.xml`, `/robots.txt`
 
 ### Layouts
@@ -102,6 +87,6 @@ Uses **Pagefind** for full-text search. The search index is generated automatica
 
 ### Static Assets & Images
 
-- `public/` — icons, logos, favicons
+- `public/` — logos, favicons
 - `src/assets/images/` — blog post images (referenced as `../../assets/images/filename.jpg` from `src/content/post/`)
 - OG images are generated dynamically at build time via `src/utils/og-templates/`
