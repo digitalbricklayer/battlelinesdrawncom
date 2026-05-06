@@ -2,22 +2,25 @@
 title: How to Enhance your Wargaming using AI
 description: "A description of how I use AI to help get more out of my hobby of wargaming"
 pubDatetime: 2026-05-02
-draft: true
+draft: false
 ---
 
-There are many ways you can use AI within the hobby, here are some of the ways I use it:
+There are many ways you can use AI within the wargaming hobby, here are some of the ways I have used it:
 1. Understanding the rules. Rules can be complex so it can be handy to get some insight without having to trawl through potentially hundreds of pages of rulebook and FAQ.
 2. Scenario / map generation
 3. List generation
 4. Strategy generation
 
-I don't use a massive amount of AI in my hobby wargaming efforts but there is one area I have found its help to be invaluable.
+I have found AI to be particularly useful in #1. Google's Gemini and NotebookLM are great tools for creating your own rules expert.
 
-Every time I buy a new ruleset I now always buy the PDF version as well as the printed version. Then I can create a NotebookLM notebook and upload the rules PDF as well as any other material like FAQs, scenario books and army lists. Gemini Gems is another way to achieve the same thing. You can build your own mini rules "expert".
+Every time I buy a new ruleset I now always buy the PDF version as well as the printed version. Then I can create a NotebookLM notebook and upload the rules PDF as well as any other material like FAQs, scenario books and army lists. I then write a note for NotebookLM to tell it about the resources I've uploaded and how to use them. For instance, if I've uploaded an FAQ I tell NotebookLM that if the FAQ contradicts the rulebook, then use the FAQ version. Gemini Gems is another way to achieve the same thing. You can build your own mini rules "expert" and even link your NotebookLM notebook as a source.
 
-Now I have a really valuable resource. I can ask NotebookLM questions about the rules and their interpretation and get back remarkably good answers that reference the relevant part of the rulebook and uses appropriate rules specific terminology.
+Now I have a really valuable resource. I can ask NotebookLM questions or my Gemini Gem about the rules and their interpretation and get back remarkably good answers that reference the relevant parts of my reference material and uses appropriate rules specific terminology.
 
-For instance, I created a notebook with the [Altar of Freedom](https://www.6mmacw.com/) American Civil War rulebook and the eastern theatre scenario PDFs.
+## Examples
+
+### Altar of Freedom List
+I created a notebook with the [Altar of Freedom](https://www.6mmacw.com/) American Civil War rulebook and the eastern theatre scenario PDFs.
 
 I then asked `Create an order of battle for the confederate side at the battle of Manassas`.
 
@@ -62,4 +65,76 @@ This is the response NotebookLM gave:
 > 
 > To visualize this, imagine the Confederate side as a **partnership between two distinct companies** that have joined forces for a specific project: Beauregard brought the local expertise and the bulk of the staff, while Johnston arrived with additional specialized teams to bolster the effort.
 
+### Void Admiral Turn
+I entered the following prompt `Give me a step by step process of a single turn` into a Gemini Gem sourced with the Void Admiral rulebook and the factions all in the form of two PDFs.
+
+Void Admiral is not a complex game, but I still find value in being able to interogate my Gemini Gem.
+
+> Welcome to the bridge, Admiral. Mastering the turn sequence is the first step toward galactic dominance. In **Void Admiral**, a single turn (round) follows a precise six-step flow to keep the action fast and tactical.
+> 
+> Here is your step-by-step guide to a single game round:
+> 
+> ### 1. Recharge Shields
+> The first order of business is to restore your defenses. You clear damage from your ships' shields by removing tokens as appropriate, ensuring your vessels are ready to soak up incoming fire.
+> 
+> ### 2. Roll Command Dice
+> Now, set your tactical resources for the turn:
+> *   First, **discard** any unwanted dice remaining on your command board from the previous round.
+> *   Then, **roll** up to a total of **six command dice** (though some factions, like the Loyalists, may have more).
+> 
+> ### 3. Deploy Fighter Tokens
+> Your carriers and hangars launch their support craft now. Place **one fighter token** next to your ships for every launch bay they possess. Remember, a ship cannot exceed a total number of tokens equal to double its fighter bay count.
+> 
+> ### 4. Determine Initiative
+> Consult your specific scenario to see who starts the game. For all subsequent rounds, the player who **finished activating their entire fleet first** in the previous round gains the initiative.
+> 
+> ### 5. Activation Phase
+> This is the heart of the game. Players alternate selecting a single ship or squadron to activate. Once a ship/squadron is chosen, it follows this strict internal sequence:
+> *   **Movement:** Ships move up to their speed in a straight line toward their prow. You may pivot up to 45 degrees after every 4 inches moved.
+> *   **Shooting:** After movement, fire all available weapons. Each weapon can be fired once, and you can combine fire from the same weapon types.
+> *   **Bombing Runs:** Finally, you may spend fighter tokens to launch bombing runs against targets within 18 inches.
+> 
+> ### 6. Score Objectives
+> Once all ships have been activated, check the scenario objectives. You usually score points by having ships in specific board sectors or meeting mission-critical criteria.
+> 
+> ---
+> 
+> **Admiral's Tip:** If you choose not to shoot or board during a ship's activation, you may **"Seal the Hatches"**. This grants the ship **+1 Armour** until its next activation, which is often the difference between a hull breach and a narrow escape.
+
+### Void Admiral Strategy
+
+I used to the following prompt: `I want to play an aggressive play style, what faction would be best and what 15 point list would your recommend?` to find a good faction and list for an aggressive playstyle. This is the result:
+
+> For an aggressive playstyle in **Void Admiral**, you want a fleet that can close the gap quickly, ignore traditional defensive layers, and punish enemies in close-quarters combat.
+> 
+> ## Recommended Faction: The Brutes
+> The **Brutes** (modeled after space pirates and orcs) are the premier choice for aggressive commanders. They excel at "boarding, ramming, and all kinds of fun". 
+> 
+> *   **Vicious Fighters:** They gain a **+1 bonus to boarding actions**. In Void Admiral, boarding is highly effective when an opponent has full shields or "Sealed Hatches," as it bypasses those defenses to deal direct hull damage.
+> *   **Ingenuity:** Despite their scrap-heap appearance, their ships are often surprisingly resilient and optimized for short-range brawling.
+
+> ---
+
+> ## 15-Point Aggressive Fleet List
+> In Void Admiral, ship classes have fixed point costs: Heavy (9), Medium (6), Light (3), and Squadrons (1 each). For a tight 15-point list designed to get in the enemy's face, I recommend a "Hammer and Anvil" approach:
+
+| Ship Class | Unit Name | Point Cost | Recommended Loadout |
+| :--- | :--- | :--- | :--- |
+| **Medium** | "The Butcher" | 6 pts | Cannon Turrets & Heavy Prow |
+| **Light** | "Slasher" Frigate | 3 pts | Missile Pods & Boarding Claws |
+| **Light** | "Stinger" Frigate | 3 pts | Missile Pods & Boarding Claws |
+| **Squadron** | 3x "Scrap" Corvettes | 3 pts | Cannon Turrets |
+| **Total** | | **15 pts** | |
+
+> ### Tactical Strategy
+> 1.  **The Missile Screen:** Use your **Light Frigates** to fire missiles as you close the distance. Missiles are key for aggressive lists because they **bypass shields** entirely.
+> 2.  **The "Scrap" Swarm:** Use your 3-ship **Squadron** to harass larger enemy vessels. Because squadrons follow loose formation rules, they can "snake" around terrain to avoid being picked off before they get into range.
+> 3.  **The Boarding Blow:** Once you are within range, do not just shoot. Use the Brutes' **+1 boarding bonus** to seize or destroy enemy ships. 
+> 4.  **Ramming Speed:** If a ship is heavily damaged, remember that **self-destruction is automatic** in boarding and can be used as a final act of defiance to take a larger enemy ship down with you.
+> 
+> Would you like a breakdown of how to use the Command Board to specifically buff this fleet's boarding capabilities?
+
+There you go, a simple list, a faction and recommendations for how to best use it on the tabletop. For a beginner with Void Admiral like me, that's a great start.
+
 ## Conclusion
+The barrier to entry for AI is incredibly low. All of the tools I've used here are free. You just need a free google account (and, if you have a gmail account you already have one) and you can head over to [Gemini](https://gemini.google.com/app) or [NotebookLM](https://notebooklm.google.com) and start using them now. I've used other tools like Claude and you'd have no problem using it to do something similar. You can create a project and add sources to that. I'm not familiar with ChatGPT but I'd wager you can do something similar there.
