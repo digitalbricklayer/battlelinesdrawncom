@@ -1,17 +1,20 @@
 ---
 title: How to Enhance your Wargaming using AI
-description: "A description of how I use AI to help get more out of my hobby of wargaming with some examples of prompts I use as well as the AI responses."
+description: "How to use NotebookLM and Gemini Gems as a wargaming rules expert — with real examples from Void Admiral and Altar of Freedom."
 pubDatetime: 2026-05-06
 tags:
   - sci-fi
   - Void Admiral
+  - Altar of Freedom
+  - American Civil War
+  - Gemini
+  - NotebookLM
 ---
 
 There are many ways you can use AI within the wargaming hobby, here are some of the ways I have used it:
 1. Understanding the rules. Rules can be complex so it can be handy to get some insight without having to trawl through potentially hundreds of pages of rulebook, errata and FAQ.
-2. Scenario / map generation
-3. List generation
-4. Strategy generation
+2. List generation
+3. Strategy generation
 
 I have found AI to be particularly useful in #1. Google's Gemini and NotebookLM are great tools for creating your own rules expert.
 
@@ -145,4 +148,4 @@ I suppose a big question is, does AI add to the hobby? I think it has added to m
 
 Are we heading to time when there is more AI use in the wargaming hobby. Very probably. I don't think it will all be bad. It would be handy to be able to solo wargame with a convincing opponent. If we are all going to have a rule expert in our pocket, then that's going to be handy. It might reduce the load on your club's rule lawyer somewhat.
 
-On the other hand, when I play I want to play against a real person. Not against their pocket friend. I haven't seen any sign of AI seeping into club sessions as yet so we'll have to see.
+On the other hand, when I play I want to play against a real person. Not against their AI. I haven't seen any sign of AI seeping into club sessions as yet so we'll have to see how this develops.
