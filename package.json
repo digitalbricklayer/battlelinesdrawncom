@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
+    "test:links": "npm run build && linkinator ./dist --recurse --skip \"\\.(?:png|jpg|jpeg|gif|tiff|bmp|svg|webp|ico|js)$\" --skip \"^https://\"",
     "preview": "astro preview",
     "sync": "astro sync",
     "astro": "astro"
@@ -30,6 +31,7 @@
     "@shikijs/transformers": "^3.20.0",
     "@tailwindcss/typography": "^0.5.19",
     "@types/lodash.kebabcase": "^4.1.9",
+    "linkinator": "^7.6.1",
     "pagefind": "^1.5.2",
     "typescript": "^5.9.3"
   }
