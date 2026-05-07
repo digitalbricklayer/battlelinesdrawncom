@@ -24,7 +24,7 @@ Once I've created my notebook or gem I have a really valuable resource. I can as
 ### Void Admiral Turn
 I entered the following prompt `Give me a step by step process of a single turn` into a Gemini Gem sourced with the Void Admiral rulebook and the factions all in the form of two PDFs.
 
-Void Admiral is not a complex game, but I still find value in being able to interogate my Gemini Gem.
+Void Admiral is not a complex game, but I still find value in being able to interrogate my Gemini Gem.
 
 > Welcome to the bridge, Admiral. Mastering the turn sequence is the first step toward galactic dominance. In **Void Admiral**, a single turn (round) follows a precise six-step flow to keep the action fast and tactical.
 > 
