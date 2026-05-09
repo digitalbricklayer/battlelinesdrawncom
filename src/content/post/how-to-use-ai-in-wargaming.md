@@ -2,6 +2,7 @@
 title: How to Enhance your Wargaming using AI
 description: "How to use NotebookLM and Gemini Gems as a wargaming rules expert — with real examples from Void Admiral and Altar of Freedom."
 pubDatetime: 2026-05-06
+modDatetime: 2026-05-09
 tags:
   - sci-fi
   - Void Admiral
@@ -14,7 +15,7 @@ tags:
 There are many ways you can use AI within the wargaming hobby, here are some of the ways I have used it:
 1. Understanding the rules. Rules can be complex so it can be handy to get some insight without having to trawl through potentially hundreds of pages of rulebook, errata and FAQ.
 2. List generation
-3. Strategy generation
+3. Strategy help
 
 I have found AI to be particularly useful in #1. Google's Gemini and NotebookLM are great tools for creating your own rules expert.
 
@@ -25,9 +26,9 @@ Once I've created my notebook or gem I have a really valuable resource. I can as
 ## Examples
 
 ### Void Admiral Turn
-I entered the following prompt `Give me a step by step process of a single turn` into a Gemini Gem sourced with the Void Admiral rulebook and the factions all in the form of two PDFs.
-
 Void Admiral is not a complex game, but I still find value in being able to interrogate my Gemini Gem.
+
+I entered the following prompt `Give me a step by step process of a single turn` into a Gemini Gem sourced with the Void Admiral rulebook and the factions all in the form of two PDFs.
 
 > Welcome to the bridge, Admiral. Mastering the turn sequence is the first step toward galactic dominance. In **Void Admiral**, a single turn (round) follows a precise six-step flow to keep the action fast and tactical.
 > 
@@ -71,9 +72,9 @@ I used to the following prompt: `I want to play an aggressive play style, what f
 > 
 > *   **Vicious Fighters:** They gain a **+1 bonus to boarding actions**. In Void Admiral, boarding is highly effective when an opponent has full shields or "Sealed Hatches," as it bypasses those defenses to deal direct hull damage.
 > *   **Ingenuity:** Despite their scrap-heap appearance, their ships are often surprisingly resilient and optimized for short-range brawling.
-
+> 
 > ---
-
+> 
 > ## 15-Point Aggressive Fleet List
 > In Void Admiral, ship classes have fixed point costs: Heavy (9), Medium (6), Light (3), and Squadrons (1 each). For a tight 15-point list designed to get in the enemy's face, I recommend a "Hammer and Anvil" approach:
 
@@ -146,6 +147,6 @@ The barrier to entry for AI is incredibly low. All of the tools I've used here a
 
 I suppose a big question is, does AI add to the hobby? I think it has added to my enjoyment of the hobby by making new rules more accessible and by extension wargaming genres easier to enter. I can't say that I particularly enjoy the nitty gritty of learning sometimes quite complex rulesets, so anything that can reduce the learning curve is going to be gratefully received here. One of the accusations sometimes thrown at AI is that it can make you really lazy by deferring all of your thinking to it. I do not do that. I do not use AI at the gaming table, I just use it to help me learning the rules, giving me a head start into creating a list or a bit of strategy. That's it.
 
-Are we heading to time when there is more AI use in the wargaming hobby. Very probably. I don't think it will all be bad. It would be handy to be able to solo wargame with a convincing opponent. If we are all going to have a rule expert in our pocket, then that's going to be handy. It might reduce the load on your club's rule lawyer somewhat.
+Are we heading to time when there is more AI use in the wargaming hobby. Very probably. I don't think it will all be bad. It would be handy to be able to solo wargame with a convincing opponent. If we are all going to have a rule expert in our pocket, then that's going to be useful. It might reduce the load on your club's rule lawyer somewhat.
 
 On the other hand, when I play I want to play against a real person. Not against their AI. I haven't seen any sign of AI seeping into club sessions as yet so we'll have to see how this develops.
