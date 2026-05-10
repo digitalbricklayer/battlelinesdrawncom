@@ -3,10 +3,10 @@ title: Introduction to Battle Lines Drawn
 description: My journey into tabletop wargaming and my progress to date up until September 2022.
 pubDatetime: 2022-09-05
 tags:
-  - bolt action
-  - flames of war
-  - team yankee
-  - o group
+  - Bolt Action
+  - Flames of War
+  - Team Yankee
+  - "'O' Group"
 ---
 
 My name is Jack Hughes and I am relatively new to wargaming. My journey started in September 2016 with a game of Memoir ’44. Just one game was enough to wet my appetite.

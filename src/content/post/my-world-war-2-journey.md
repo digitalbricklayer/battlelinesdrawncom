@@ -3,9 +3,9 @@ title: My World War 2 Wargaming Journey
 description: A quick survey of my World War 2 wargaming journey so far up until September 2022.
 pubDatetime: 2022-09-07
 tags:
-  - bolt action
-  - flames of war
-  - o group
+  - Bolt Action
+  - Flames of War
+  - "'O' Group"
 ---
 
 A quick survey of my World War 2 wargaming journey so far up until September 2022.
