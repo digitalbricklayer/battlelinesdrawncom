@@ -1,8 +1,8 @@
 ---
-title: How to Enhance your Wargaming using AI
+title: How to use NotebookLM and Gemini Gems as your wargaming rules expert
 description: "How to use NotebookLM and Gemini Gems as a wargaming rules expert — with real examples from Void Admiral and Altar of Freedom."
 pubDatetime: 2026-05-06
-modDatetime: 2026-05-09
+modDatetime: 2026-05-10
 tags:
   - sci-fi
   - Void Admiral
@@ -17,7 +17,7 @@ There are many ways you can use AI within the wargaming hobby, here are some of 
 2. List generation
 3. Strategy help
 
-I have found AI to be particularly useful in #1. Google's Gemini and NotebookLM are great tools for creating your own rules expert.
+I have found AI to be particularly useful in #1 though NotebookLM excels at #2 and #3 as well. Google's Gemini and NotebookLM are great tools for creating your own rules expert.
 
 Every time I buy a new ruleset I now always buy the PDF version as well as the printed version. Then I can create a NotebookLM notebook and upload the rules PDF as well as any other material like FAQs, scenario books and army lists. I then write a note for NotebookLM to tell it about the resources I've uploaded and how to use them. For instance, if I've uploaded an FAQ or errata I tell NotebookLM that those documents are to be used if they contradict the rulebook. Gemini Gems are another way to achieve the same thing. You can build your own mini rules "expert" and even link your NotebookLM notebook as a source.
 
