@@ -32,21 +32,39 @@ const {
 const socialImageURL = new URL(ogImage, Astro.url);
 const ogType = pubDatetime ? "article" : "website";
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  headline: `${title}`,
-  image: `${socialImageURL}`,
-  datePublished: `${pubDatetime?.toISOString()}`,
-  ...(modDatetime && { dateModified: modDatetime.toISOString() }),
-  author: [
-    {
-      "@type": "Person",
-      name: `${author}`,
-      ...(profile && { url: profile }),
-    },
-  ],
+const authorSchema = {
+  "@type": "Person",
+  name: author,
+  ...(profile && { url: profile }),
 };
+
+const structuredData = pubDatetime
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: title,
+      image: `${socialImageURL}`,
+      datePublished: pubDatetime.toISOString(),
+      ...(modDatetime && { dateModified: modDatetime.toISOString() }),
+      author: [authorSchema],
+    }
+  : Astro.url.pathname === "/"
+    ? {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: title,
+        url: `${canonicalURL}`,
+        description,
+        author: authorSchema,
+      }
+    : {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: title,
+        url: `${canonicalURL}`,
+        description,
+        author: authorSchema,
+      };
 ---
 
 <!doctype html>
@@ -77,6 +95,8 @@ const structuredData = {
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:locale" content="en_GB" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
