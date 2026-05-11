@@ -31,9 +31,12 @@ const months = [
 ];
 ---
 
-<Layout title={`Archives | ${SITE.title}`}>
+<Layout
+  title={`Archives | ${SITE.title}`}
+  description="A chronological archive of all Battle Lines Drawn articles on WW2 historical tabletop wargaming."
+>
   <Header />
-  <Main pageTitle="Archives" pageDesc="All the articles I've archived.">
+  <Main pageTitle="Archives" pageDesc="All posts grouped by year and month.">
     {
       Object.entries(
         getPostsByGroupCondition(posts, post =>

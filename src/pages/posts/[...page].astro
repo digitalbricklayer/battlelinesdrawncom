@@ -18,9 +18,12 @@ export const getStaticPaths = (async ({ paginate }) => {
 const { page } = Astro.props;
 ---
 
-<Layout title={`Posts | ${SITE.title}`}>
+<Layout
+  title={`Posts | ${SITE.title}`}
+  description="Every article on Battle Lines Drawn focusing on historical tabletop wargaming though that's likely to change as my interests veer into other areas of the hobby."
+>
   <Header />
-  <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
+  <Main pageTitle="Posts" pageDesc="Battle reports, ruleset reviews, painted armies, and hobby guides.">
     <ul>
       {page.data.map(data => <Card {...data} />)}
     </ul>
